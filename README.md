@@ -16,8 +16,9 @@ Installation:
 
 ```console
 ~$ git clone --recurse-submodules https://github.com/snovvcrash/NimHollow && cd NimHollow
-~$ sudo apt install upx -y
+~$ nimble install winim nimcrypto
 ~$ pip3 install -r requirements.txt
+~$ sudo apt install upx -y
 ```
 
 Example:
