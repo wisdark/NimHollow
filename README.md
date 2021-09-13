@@ -64,7 +64,7 @@ optional arguments:
 
 ![](https://user-images.githubusercontent.com/23141800/132571951-fb9b08b4-b6ab-4ae9-9387-e6f316fd4500.png)
 
-4\. Read 200 bytes of the loaded EXE image and parse PE structure to get the EntryPoint address.
+4\. Read 0x200 bytes of the loaded EXE image and parse PE structure to get the EntryPoint address.
 
 ![](https://user-images.githubusercontent.com/23141800/132571964-588c830e-de06-4b09-a708-b32c4150a17c.png)
 
