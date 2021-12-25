@@ -1,3 +1,6 @@
 [submodule "NimlineWhispers"]
 	path = NimlineWhispers
 	url = https://github.com/ajpc500/NimlineWhispers
+[submodule "NimlineWhispers2"]
+	path = NimlineWhispers2
+	url = https://github.com/ajpc500/NimlineWhispers2

