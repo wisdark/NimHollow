@@ -9,6 +9,8 @@ Features:
 * Shellcode encryption/decryption with [AES in CTR mode](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)).
 * Simple sandbox detection methods from the OSEP course by @offensive-security.
 
+> **DISCLAIMER.** All information contained in this repository is provided for educational and research purposes only. The author is not responsible for any illegal use of this tool.
+
 ## Usage
 
 Installation:
