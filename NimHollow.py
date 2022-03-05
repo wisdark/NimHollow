@@ -94,8 +94,10 @@ if __name__ == '__main__':
 	os.system(f'nim c {out}.nim')
 
 	if args.upx:
-		os.system(f'upx --best {out}.exe')
+		os.system(f'upx --best {out}.exe > /dev/null')
 
 	if args.rm:
 		os.remove('syscalls.nim')
 		os.remove(f'{out}.nim')
+
+	os.system(f'file {out}.exe')

@@ -11,5 +11,5 @@ NtResumeThread
 NtClose
 EOT
 
-python3 NimlineWhispers2.py --randomise
+python3 NimlineWhispers2.py --randomise > /dev/null
 mv syscalls.nim ../syscalls.nim

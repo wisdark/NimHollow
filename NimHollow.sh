@@ -11,7 +11,7 @@ NtResumeThread
 NtClose
 EOT
 
-python3 NimlineWhispers.py --randomise
+python3 NimlineWhispers.py --randomise > /dev/null
 
 cat << 'EOT' >> syscalls.nim
 type

